@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { useAppSelector, useAppDispatch } from '../../app/hooks'
-import { readFile, selectFile } from '../blueprintLoaderSlice'
+import { readFile, selectFile } from './blueprintLoaderSlice'
 
 
 export default function BlueprintLoader() {

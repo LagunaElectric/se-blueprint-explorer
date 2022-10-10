@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-import blueprintLoaderSlice from "../components/blueprintLoaderSlice"
+import blueprintLoaderSlice from "../components/BlueprintLoader/blueprintLoaderSlice"
 
 export const store = configureStore({
   reducer: {

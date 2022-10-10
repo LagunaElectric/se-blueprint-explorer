@@ -1,9 +1,9 @@
 import React from 'react'
 import logo from './logo.svg'
 import { store } from './app/store'
-import BlueprintLoader from './components/BlueprintLoader/BlueprintLoader'
 import './App.css'
 import { Provider } from 'react-redux'
+import BlueprintViewer from './components/BlueprintViewer/BlueprintViewer'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           <img src={ logo } className="App-logo" alt="logo" />
-          <BlueprintLoader />
+          <BlueprintViewer />
           <a
             className="App-link"
             href="https://reactjs.org"
