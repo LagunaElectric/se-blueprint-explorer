@@ -4,7 +4,7 @@ type Props = {}
 
 type State = {
   files?: FileList | null,
-  fileContents?: String | ArrayBuffer | undefined
+  fileContents?: String | ArrayBuffer | null
 }
 
 export default class BlueprintLoader extends Component<Props, State> {
@@ -13,28 +13,25 @@ export default class BlueprintLoader extends Component<Props, State> {
 
   constructor(props: Props) {
     super(props)
-    this.handleUpload = this.handleUpload.bind(this)
     this.inputRef = React.createRef<HTMLInputElement>()
+    this.onChange = this.onChange.bind(this)
   }
 
-  handleUpload(e: React.ChangeEvent<HTMLInputElement>): void {
-    const selectedFiles = this.inputRef.current?.files
-    console.log(selectedFiles)
-    this.setState({ files: selectedFiles })
-    console.log(this.state.files)
-    const fileReader = new FileReader()
-    fileReader.onloadend = e => {
-      const content = fileReader.result
-      this.setState({ fileContents: content ?? "No file" })
-      console.log(content)
+
+  onChange(event: React.ChangeEvent<HTMLInputElement>) {
+    var file = event.target.files?.[0] ?? new Blob()
+    var reader = new FileReader()
+    reader.onload = function (event) {
+      // The file's text will be printed here
+      console.log(event.target?.result)
     }
-    fileReader.readAsText(this.state.files?.[0] ?? new Blob())
+    reader.readAsText(file)
   }
 
   render() {
     return (
       <>
-        <input type="file" ref={ this.inputRef } onChange={ this.handleUpload } />
+        <input type="file" ref={ this.inputRef } onChange={ this.onChange } />
         <button onClick={ (e: React.MouseEvent<HTMLButtonElement>) => console.log(this.state) }>log bp</button>
         <p>{ this.state.fileContents?.toString() }</p>
       </>
