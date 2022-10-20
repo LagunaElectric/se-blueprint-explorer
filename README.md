@@ -1,0 +1,43 @@
+# se-blueprint-explorer
+This is an attempt to make a blueprint utility for space engineers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### All profits should and will go to the amazing, stuning, genius and humble FredNoonienSingh 
