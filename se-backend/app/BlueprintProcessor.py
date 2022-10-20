@@ -8,6 +8,8 @@ class BlueprintProcessor:
         self.blueprint_path = blueprint_path
         if self.blueprint_path is not None: 
             self.data = self.read_xml()
+        else: 
+            self.data = {}
     
     def read_xml(self):
         xml = ET.parse(self.blueprint_path)
