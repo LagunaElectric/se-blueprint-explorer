@@ -1,4 +1,5 @@
 import pandas as pd
+from block import Block
 
 
 class BlueprintProcessor:
