@@ -4,6 +4,11 @@ import blueprintLoaderSlice from "../components/BlueprintLoader/blueprintLoaderS
 export const store = configureStore({
   reducer: {
     blueprintLoader: blueprintLoaderSlice
+  },
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware({
+      serializableCheck: false
+    })
   }
 })
 

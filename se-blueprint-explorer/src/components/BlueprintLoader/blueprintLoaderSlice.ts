@@ -1,8 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import type { RootState } from "../../app/store"
 
+var XMLParser = require("react-xml-parser")
+
 interface BlueprintLoaderState {
-  file: String
+  file: any
 }
 
 const initialState: BlueprintLoaderState = {
@@ -14,7 +16,7 @@ export const blueprintLoaderSlice = createSlice({
   initialState,
   reducers: {
     readFile: (state, action: PayloadAction<string>) => {
-      state.file = action.payload
+      state.file = new XMLParser().parseFromString(action.payload)
     }
   }
 })
