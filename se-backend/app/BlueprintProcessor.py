@@ -1,20 +1,23 @@
-import pandas as pd
-from block import Block
-
-
+from os import listdir
+from utils.xmlparser import ToDict
+from xml.etree import ElementTree as ET
+from objects.blueprint import Blueprint
 class BlueprintProcessor:
-    raw_xml: list[str] = []
+    
+    def __init__(self, blueprint_path: str=None) -> None:
+        self.blueprint_path = blueprint_path
+        if self.blueprint_path is not None: 
+            self.data = self.read_xml()
+    
+    def read_xml(self):
+        xml = ET.parse(self.blueprint_path)
+        return ToDict(xml)
 
-    def __main__(self):
+    def find_conveyor(self):
         pass
 
-    def read_xml(self) -> pd.DataFrame:
+''' For Test and Debug purposes '''
+if __name__ == "__main__":
 
-        xml: str = ''
-
-        for line in self.raw_xml:
-            xml = xml + line
-
-        xml_dataframe = pd.read_xml('../test_data/source/bp.sbc')
-
-        print(xml_dataframe)
+    test = BlueprintProcessor('./test_data/source/test.xml')
+    print(test.data)
